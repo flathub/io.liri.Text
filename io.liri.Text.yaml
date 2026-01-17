@@ -1,7 +1,6 @@
 app-id: io.liri.Text
-branch: stable
 runtime: org.kde.Platform
-runtime-version: "5.15-22.08"
+runtime-version: "5.15-25.08"
 sdk: org.kde.Sdk
 base: io.liri.BaseApp
 base-version: "5.12"
@@ -10,7 +9,7 @@ finish-args:
   - --device=dri
   - --filesystem=host
   - --socket=wayland
-  - --socket=x11
+  - --socket=fallback-x11
   - --share=ipc
 modules:
   - name: text
@@ -19,3 +18,5 @@ modules:
       - type: archive
         url: https://github.com/lirios/text/releases/download/v0.5.0/liri-text-0.5.0.tar.xz
         sha256: 0fb771fe48807d772f85373e7ecc0c5978290605594f814cf6a430fa45e2dc67
+      - type: patch
+        path: fix-metadata.patch
